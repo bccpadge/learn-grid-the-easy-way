@@ -144,9 +144,47 @@ h3 {
 
 /* components */
 .testimonial-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-auto-columns: 1fr;
+  grid-template-areas: "daniel" "jonathan" "jeanette" "patrick" "kira";
   padding-block: 2rem;
   width: min(95%, 70rem);
   margin-inline: auto;
+}
+
+.testimonial:nth-child(1) {
+  grid-area: daniel;
+}
+.testimonial:nth-child(2) {
+  grid-area: jonathan;
+}
+.testimonial:nth-child(3) {
+  grid-area: jeanette;
+}
+.testimonial:nth-child(4) {
+  grid-area: patrick;
+}
+.testimonial:nth-child(5) {
+  grid-area: kira;
+}
+
+@media (min-width: 30em) {
+  .testimonial-grid {
+    grid-template-areas:
+      "daniel daniel"
+      "jonathan kira"
+      "jeanette kira"
+      "patrick patrick";
+  }
+}
+
+@media (min-width: 50em) {
+  .testimonial-grid {
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+  }
 }
 
 .testimonial {
